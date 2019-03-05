@@ -1,3 +1,3 @@
-# Introduction
+# 介绍
 
-这就是个Java学习记录
+这就是个学渣的Java学习记录
