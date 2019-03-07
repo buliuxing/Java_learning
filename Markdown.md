@@ -105,4 +105,6 @@ public class Main{
 
 MAC插入图片使用快捷键 control+command+I
 
-![这是图片](/Users/yangzengrui01/Downloads/保罗.jpg)
+避免上传本地图片无法分享，可采用免费图床（[微博图床 — 土豆图床](https://images.ac.cn/)）
+
+![这是图片](https://ww1.sinaimg.cn/large/007rAy9hly1g0u1468w58j30dc099gm6.jpg)
