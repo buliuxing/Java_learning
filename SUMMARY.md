@@ -23,6 +23,7 @@
     * [第3节：Mongo](SQL/mongo.md)
 * [第五章：数据结构](DataStructure/README.md)
 * [第六章：算法](Algorithm/README.md)
+    * [第1节：剑指offer](Algorithm/offer.md)
 * [第七章：设计模式](DesignPattern/README.md)
 * [第八章：框架与中间件](Framework/README.md)
     * [第1节：Spring](Framework/spring.md)
