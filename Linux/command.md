@@ -197,3 +197,39 @@ scp -r /home/work/a.txt work@10.0.0.1:/home/work/a.txt
 **常用工具**：
 
 ​      SecureCRT  /   iTerm2
+
+
+
+## 命令：wget
+
+**作用**：下载单个文件
+
+```shell
+#下载redis源码包
+wget http://download.redis.io/releases/redis-5.0.3.tar.gz 
+```
+
+
+
+## 命令：df
+
+**作用**：查看硬盘空间
+
+```shell
+df -h
+```
+
+
+
+## 命令：crontab
+
+**作用**：定时任务命令
+
+```shell
+crontab -e 
+
+#命令格式，每天12点执行脚本
+0    12   *   *   *    /home/work/*.sh
+#分  时   日   月  周  |《=====脚本========》|
+```
+

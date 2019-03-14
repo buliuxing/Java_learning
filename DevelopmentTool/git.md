@@ -31,6 +31,7 @@
 
   ```
   git remote add origin <server>
+  git remote remove origin 取消本地目录下关联的远程库
   ```
 
 * ### git push origin master 将改动代码提交到远程仓库
