@@ -233,3 +233,13 @@ crontab -e
 #分  时   日   月  周  |《=====脚本========》|
 ```
 
+
+
+## 命令：alias
+
+**作用**：创建临时别名，可以方便输入避免路径切换
+
+```shell
+alias mysql=/usr/local/mysql/bin/mysql 
+```
+
