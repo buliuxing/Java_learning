@@ -9,6 +9,7 @@
   ```
   git init 创建本地代码仓库，创建一个.git文件夹
   git clone https://github.com/buliuxing/Java_learning.git 下载远程代码
+  git remote -v 查看关联的远程仓库
   git clone -b branch_name  <server> 拉取分支代码到本地
   git fetch origin branch_name 拉取分支代码到本地（前提需要：建立本地仓库和远程仓库的关联） 
   git checkout -b branch_name origin/branch_nam 在本地创建分支并切换到该分支

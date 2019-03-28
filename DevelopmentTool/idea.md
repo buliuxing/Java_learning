@@ -30,6 +30,7 @@
   |       Control + Shift + B       |           打开类声明处           |
   |             Cmd + J             |           插入注释模版           |
   |       **Cmd +Shift + T**        |          快速创建测试类          |
+  |          Option + 回车          |              导入包              |
 
   
 

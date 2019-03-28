@@ -101,7 +101,17 @@ public class Main{
 }
 ```
 
-## 八、图片
+
+
+## 八、取消回车格式
+
+```java
+MAC使用快捷键 command+[
+```
+
+
+
+## 九、图片
 
 MAC插入图片使用快捷键 control+command+I
 

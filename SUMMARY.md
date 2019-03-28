@@ -37,6 +37,7 @@
     * [第8节：序列化工具](Framework/serialization.md)
     * [第9节：RPC工具:Dubbo](Framework/rpc.md)
     * [第10节：Restful API](Framework/restful.md)
+    * [第11节：Lombok](Framework/lombok.md)
 * [第九章：服务器](Server/README.md)
     * [第1节：Tomcat](Server/tomcat.md)
     * [第2节：Nginx](Server/nginx.md)
@@ -49,4 +50,6 @@
     * [第1节：IntelliJ IDEA](DevelopmentTool/idea.md)
     * [第2节：Maven](DevelopmentTool/maven.md)
     * [第3节：Git](DevelopmentTool/git.md)
+    * [第4节：Jmeter](DevelopmentTool/Jmeter.md)
+    * [第5节：Postman](DevelopmentTool/Postman.md)
 
