@@ -19,3 +19,87 @@ Nginx 做为 HTTP 服务器，有以下几项基本特性：
 - 支持 SSL 和 TLSSNI．
 
   
+
+### 安装
+
+```shell
+#下载安装包
+wget http://nginx.org/download/nginx-XX.XX.XX.tar.gz
+#解压源码目录
+tar -xzvf nginx-XX.XX.XX.tar.gz
+#进入源码目录、配置、编译和安装
+cd nginx-XX.XX.XX
+./configure
+make
+make install
+```
+
+### 常用命令
+
+```shell
+ngnix 启动
+nginx -s command
+-- stop: 关闭
+-- reload： 重新加载配置文件
+```
+
+### 核心配置文件
+
+```shell
+#配置工作模式
+events{
+     worker_connections 1024;
+}
+
+#http块
+http{
+
+    #设置转发服务器
+    server{
+        #监听的端口
+        listen 8080;
+        #匹配域名/IP
+        server_name www.baidu.com;
+        #匹配的路由
+        location /{
+        	#返回给客户端资源文件的根目录
+            root html;
+            #默认返回的文件名
+            index index.html
+        }
+    }
+    
+    #设置转发服务器
+    server{
+         ......
+    }
+}
+```
+
+### 工作原理
+
+Ngnix采用多线程+异步非阻塞IO事件模型处理连接请求。多进程模型包括：一个master进程，多个worker进程。
+
++ **Ngnix的负载均衡模块采用方式：**
+
+  ```
+  轮转法： 它处理请求就像纸牌从头到尾分发；
+  IP哈希法： 众多请求下，确保同一IP的请求分发到相同的后端服务器；
+  ```
+
++ **Ngnix高并发的处理**
+
+  ```
+  Nginx采用了Linux的epoll模型，epoll模型基于事件驱动机制，它可以监控多个事件是否准备完毕，如果OK，那么放入epoll队列中，这个过程是异步的。worker只需要从epoll队列循环处理即可。
+  ```
+
++ **Ngnix的高可用**
+
+  ```
+  Keepalived + Ngnix实现高可用；
+  1、请求不直接打到Ngnix上，先通过Keepalived（虚拟IP，VIP）
+  2、Keepalived应该监控Ngnix的生命状态，进行权重分配，实现Ngnix的故障切换
+  ```
+
+  
+
