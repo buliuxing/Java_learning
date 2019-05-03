@@ -24,6 +24,7 @@
 
   ```mysql
   mysqladmin -uroot -p旧密码 password 新密码
+  123456
   ```
 
 + 查看端口号

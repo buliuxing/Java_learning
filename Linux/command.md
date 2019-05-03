@@ -243,3 +243,41 @@ crontab -e
 alias mysql=/usr/local/mysql/bin/mysql 
 ```
 
+
+
+## 命令：df/du
+
+**作用**：查看磁盘的使用情况
+
+```shell
+//查看系统中文件的使用情况
+df -h
+//查看当前目录下各个文件及目录占用空间大小
+du -sh *
+//使用指定目录的层数查看文件夹的占用空间的大小
+du -h --max-depth=1 /home
+```
+
+
+
+## 命令：lsof
+
+**作用**：列出当前系统打开文件的工具
+
+```shell
+lsof -i 用以显示符合条件的进程情况
+//查看当前端口的占用
+lsof -i:8080
+```
+
+
+
+## 命令：sed
+
+**作用**：文本处理
+
+```shell
+//想替换大文件中的字符串
+sed -i "s/tf_user/tf_user_index/g" access.log 
+```
+
