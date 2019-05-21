@@ -46,3 +46,42 @@ public class JdkProxyExample implements InvocationHandler{
 }
 ```
 
+### 单例模式
+
++ **双重检查**
+
+  ```java
+  public class Singleton{
+      private volatile static Singleton instance;
+      private Singleton(){}
+      
+      public static Singleton getSingleton(){
+          if(instance == null){
+              synchronized(Singleton.class){
+                  if(instance == null){
+                      instance = new Singleton();
+                  }
+              }
+          }
+          return instance;
+      }
+  }
+  ```
+
++ **饿汉式**
+
+  ```java
+  public class Singleton{
+      //类加载初始化
+      private static final Singleton instance = new Singleton();
+      
+      private Singleton(){}
+      
+      public static Singleton getInstance(){
+          return instance;
+      }
+  }
+  ```
+
+  
+

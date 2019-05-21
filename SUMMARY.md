@@ -38,6 +38,7 @@
     * [第9节：RPC工具:Dubbo](Framework/rpc.md)
     * [第10节：Restful API](Framework/restful.md)
     * [第11节：Lombok](Framework/lombok.md)
+    * [第12节：RateLimiter](Framework/RateLimiter.md)
 * [第九章：服务器](Server/README.md)
     * [第1节：Tomcat](Server/tomcat.md)
     * [第2节：Nginx](Server/nginx.md)

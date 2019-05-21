@@ -229,4 +229,157 @@
   }
   ```
 
-+ 
++ ### LRU缓存
+
+  **思路：**双向链表加哈希表，hash表用于缓存，链表用于保持数据的有序，最新数据放在链表尾，从head删除最近最少使用的数据；
+
+  ```java
+  public class Solution{
+      private int capacity;
+      private HashMap<Integer, Node> map = new HashMap<>();
+      //记录头
+      private ListNode head = new Node(-1, -1); 
+      //记录尾
+      private ListNode tail = new Node(-1, -1);
+      
+      private class ListNode{
+          ListNode prev, next;
+          int val, key;
+          
+          public ListNode(int key, int val){
+              this.val = val;
+              this.key = key;
+              prev = null;
+              next = null;
+          }
+      }
+      
+      public Solution(int capacity){
+          this.capacity = capacity;
+          tail.head = head;
+          head.next = tail;
+      }
+      
+      public int get(int key){
+          if(!map.containsKey(key)){
+              return -1;
+          }
+          //remove current
+          ListNode currentNode = map.get(key);
+          currentNode.prev.next = currentNode.next;
+          currentNode.next.prev = currentNode.prev;
+          
+          //move current to tail
+          moveToTail(currentNode);
+          
+          return map.get(key).val;
+      }
+      
+      public viod set(int key, int value){
+          if(get(key) != -1){
+              map.get(key).val = value;
+              return;
+          }
+          if(map.size() == capacity){
+              map.remove(head.next.key);
+              head.next = head.next.head;
+              head.next.prev = head;
+          }
+          ListNode isnert = new ListNode(key, value);
+          map.put(key, insert);
+          moveToTail(insert);
+      }
+      
+      private void moveToTail(ListNode current){
+          current.prev = tail.prev;
+          tail.prev = current;
+          current.prev.next = current;
+          current.next = tail;
+      }
+  }
+  ```
+
++ ###最小的K个数
+
+  **题目**：输入n个整数，找出最小的k个数。采用快排思想
+
+  ```java
+  public class Test{
+      
+      public static void getLeastNumber(int[] input, int[] output){
+          if(input == null || input.length <= 0 
+            || output == null || output.length <= 0){
+              throw new RuntimeException("Invalid params");
+          }
+          
+          int start = 0;
+          int end = input.length - 1;
+          int index = partition(input, start, end);
+          int target = output.length - 1;
+          
+          while(index != target){
+              if(index < target){
+                  start = index + 1;
+              }else{
+                  end = index - 1;
+              }
+              index = partition(input, start, end);
+          }
+          
+          System.arraycopy(input, 0, output, 0, output.length);
+      }
+      
+      private static int partition(int[] input, int start, int end){
+          int temp = input[start];
+          
+          while(start < end ){
+              while(start < end && input[end] >= temp){
+                  end--;
+              }
+              input[start] = input[end];
+              
+              while(start < end && input[start] <= temp){
+                  start++;
+              }
+              input[end] = input[start];
+          }
+          
+          input[start] = temp;
+          return start;
+      }
+  }
+  ```
+
+  + ###连续子数组的最大和
+
+  **题目**：输入一个整型数组，数组里有正数也有负数。数组中一个或连续的多个整数组成一个子数组。求所有子数组的和的最大值。要求时间复杂度为O(n)。
+
+  ```java
+  public class Test{
+      
+      public static int findSums(int[] arr){
+          //参数校验
+          if(arr == null || arr.length < 1){
+              throw new RuntimeException("Invalid params");
+          }
+          //记录当前子数组和
+          int max = Integer.MIN_VALUE;
+          //当前的和
+          int curMax = 0;
+          //数组遍历
+          for(int i : arr){
+              if(curMax <= 0){
+                  curMax = i;
+              }else{
+                  curMax += i;
+              }
+              if(max < curMax){
+                  max = curMax;
+              }
+          }
+          return max;
+      }
+  }
+  ```
+
+  
